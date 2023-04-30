@@ -1,0 +1,35 @@
+[project]
+name = "{{cookiecutter.project_name}}"
+version = "0.0.1"
+description = "{{cookiecutter.project_description}}"
+readme = "README.md"
+requires-python = ">={{cookiecutter.python_version}}"
+license = {file = "LICENSE"}
+# keywords = ["", ""]
+authors = [
+    {name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}" }
+]
+maintainers = [
+    {name = "{{cookiecutter.author_name}}", email = "{{cookiecutter.author_email}}" }
+]
+dependencies = [
+    "pydantic"
+]
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "isort",
+    "pytest"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 120
+target_version = ['py39']
+
+[tool.isort]
+profile = "black"
