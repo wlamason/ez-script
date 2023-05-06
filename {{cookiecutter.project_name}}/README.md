@@ -40,11 +40,6 @@ Install dev requirements:
 python3 -m pip install -r dev-requirements.txt
 ```
 
-Create `secrets.json`:
-```
-echo "{}" >> secrets.json
-```
-
 Run program:
 ```
 python3 {{cookiecutter.project_name}}.py --help
