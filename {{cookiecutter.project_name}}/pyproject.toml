@@ -20,7 +20,8 @@ dependencies = [
 dev = [
     "black",
     "isort",
-    "pytest"
+    "pytest",
+    "fire"
 ]
 
 [build-system]
