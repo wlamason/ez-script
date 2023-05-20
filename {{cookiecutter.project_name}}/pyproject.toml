@@ -19,9 +19,9 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "black",
-    "isort",
+    "pip-tools",
     "pytest",
-    "fire"
+    "ruff"
 ]
 
 [build-system]
@@ -32,5 +32,8 @@ build-backend = "setuptools.build_meta"
 line-length = 120
 target_version = ['py39']
 
-[tool.isort]
-profile = "black"
+[tool.ruff]
+select = ["D", "E", "F", "I", "PL"]
+ignore = ["D203", "D213"]
+line-length = 120
+target-version = "py39"

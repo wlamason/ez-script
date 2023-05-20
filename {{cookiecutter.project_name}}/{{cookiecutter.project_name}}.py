@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 # Utilities #
 #############
 
+
 @contextmanager
 def time_it(msg: str):
     start = time.perf_counter_ns()
@@ -27,6 +28,7 @@ def time_it(msg: str):
 ###################
 # Pydantic Models #
 ###################
+
 
 # TODO: Add expected config attributes
 class Config(BaseModel):
@@ -43,6 +45,7 @@ class Secrets(BaseModel):
 # {{cookiecutter.project_name}} #
 ########
 
+
 @time_it("{{cookiecutter.project_name}}")
 def main(config: Config, secrets: Secrets) -> int:
     """Main processing logic."""
@@ -52,6 +55,7 @@ def main(config: Config, secrets: Secrets) -> int:
 ###################
 # CLI Boilerplate #
 ###################
+
 
 def config_logger(verbosity: str):
     """Configure logging script."""

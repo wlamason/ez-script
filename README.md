@@ -1,7 +1,7 @@
 # ez-script
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](./LICENSE)
 
-Cookiecutter template to quickly stand up a script with logging, configuration, and secrets.
+Cookiecutter template to quickly stand up a script with linting, logging, configuration, and secrets.
 
 ## Install `cookiecutter`
 

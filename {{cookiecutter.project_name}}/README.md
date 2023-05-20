@@ -9,6 +9,13 @@
 python3 {{cookiecutter.project_name}}.py
 ```
 
+## Linting
+
+Run:
+```
+ruff check --fix .
+```
+
 ## Local setup
 
 Run:
@@ -37,7 +44,7 @@ pip-compile --extra dev -o dev-requirements.txt pyproject.toml
 
 Install dev requirements:
 ```
-python3 -m pip install -r dev-requirements.txt
+pip-sync dev-requirements.txt
 ```
 
 Run program:
