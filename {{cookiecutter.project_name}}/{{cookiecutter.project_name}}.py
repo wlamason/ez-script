@@ -1,3 +1,4 @@
+"""{{cookiecutter.project_name}} - {{cookiecutter.project_description}}"""
 import argparse
 import logging
 import time
@@ -5,7 +6,6 @@ from contextlib import contextmanager
 from typing import Optional
 
 from pydantic import BaseModel
-
 
 logger = logging.getLogger(__name__)
 
@@ -17,6 +17,7 @@ logger = logging.getLogger(__name__)
 
 @contextmanager
 def time_it(msg: str):
+    """Context manager to capture the timing of functions and code blocks."""
     start = time.perf_counter_ns()
     try:
         yield
@@ -73,10 +74,12 @@ def config_logger(verbosity: str):
     root_logger.addHandler(console_handler)
 
 
-def parse_args(argv: Optional[list[str]]=None) -> argparse.Namespace:
+def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     """Parse CLI arguments."""
     parser = argparse.ArgumentParser(description="{{cookiecutter.project_description}}")
-    parser.add_argument("-v", "--verbosity", default="INFO", choices=["WARNING", "INFO", "DEBUG"], help="Level to log at.")
+    parser.add_argument(
+        "-v", "--verbosity", default="INFO", choices=["WARNING", "INFO", "DEBUG"], help="Level to log at."
+    )
     parser.add_argument("-c", "--config", default="config.json", help="Config filename.")
     parser.add_argument("-s", "--secrets", default="secrets.json", help="Secrets filename.")
     return parser.parse_args(argv)

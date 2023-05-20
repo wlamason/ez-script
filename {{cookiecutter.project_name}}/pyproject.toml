@@ -35,5 +35,13 @@ target_version = ['py39']
 [tool.ruff]
 select = ["D", "E", "F", "I", "PL"]
 ignore = ["D203", "D213"]
+fix = true
 line-length = 120
 target-version = "py39"
+
+[tool.ruff.pydocstyle]
+# Use Google-style docstrings.
+convention = "google"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

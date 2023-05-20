@@ -13,44 +13,30 @@ python3 {{cookiecutter.project_name}}.py
 
 Run:
 ```
-ruff check --fix .
+black .
+ruff .
 ```
 
-## Local setup
+## Testing
 
-Run:
 ```
-./local_setup.sh
-```
-
-Which will...
-
-Create venv:
-```
-python3 -m venv venv
-. venv/bin/activate
+pytest
 ```
 
-Install `pip-tools`:
-```
-python3 -m pip install pip-tools
-```
+## Generate new requirements files
 
-Generate requirements files:
 ```
 pip-compile -o requirements.txt pyproject.toml
 pip-compile --extra dev -o dev-requirements.txt pyproject.toml
 ```
 
-Install dev requirements:
-```
-pip-sync dev-requirements.txt
-```
+## Relevant documentation
 
-Run program:
-```
-python3 {{cookiecutter.project_name}}.py --help
-```
+- pydantic - https://docs.pydantic.dev/latest/
+- pip-tools - https://pip-tools.readthedocs.io/en/latest/
+- pytest - https://docs.pytest.org/en/7.3.x/contents.html
+- black - https://black.readthedocs.io/en/stable/
+- ruff - https://beta.ruff.rs/docs/
 
 ## Show your support
 
