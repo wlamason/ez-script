@@ -1,6 +1,7 @@
 """{{cookiecutter.project_name}} - {{cookiecutter.project_description}}"""
 
 import argparse
+import json
 import logging
 import time
 from contextlib import contextmanager
@@ -89,6 +90,6 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
 if __name__ == "__main__":
     args = parse_args()
     config_logger(args.verbosity)
-    config = Config.parse_file(args.config)
-    secrets = Secrets.parse_file(args.secrets)
+    config = Config.model_validate(json.load(args.config))
+    secrets = Secrets.model_validate(json.load(args.secrets))
     raise SystemExit(main(config, secrets))
