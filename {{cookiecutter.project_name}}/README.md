@@ -13,8 +13,9 @@ python3 {{cookiecutter.project_name}}.py
 
 Run:
 ```
-black .
-ruff .
+ruff format
+ruff check --fix
+ruff check
 ```
 
 ## Testing
@@ -35,7 +36,6 @@ pip-compile --extra dev -o dev-requirements.txt pyproject.toml
 - pydantic - https://docs.pydantic.dev/latest/
 - pip-tools - https://pip-tools.readthedocs.io/en/latest/
 - pytest - https://docs.pytest.org/en/7.3.x/contents.html
-- black - https://black.readthedocs.io/en/stable/
 - ruff - https://beta.ruff.rs/docs/
 
 ## Show your support
