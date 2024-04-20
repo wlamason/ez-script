@@ -1,10 +1,10 @@
 """{{cookiecutter.project_name}} - {{cookiecutter.project_description}}"""
 
 import argparse
-import json
 import logging
 import time
 from contextlib import contextmanager
+from pathlib import Path
 from typing import Optional
 
 from pydantic import BaseModel
@@ -82,14 +82,14 @@ def parse_args(argv: Optional[list[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "-v", "--verbosity", default="INFO", choices=["WARNING", "INFO", "DEBUG"], help="Level to log at."
     )
-    parser.add_argument("-c", "--config", default="config.json", help="Config filename.")
-    parser.add_argument("-s", "--secrets", default="secrets.json", help="Secrets filename.")
+    parser.add_argument("-c", "--config", default="config.json", type=Path, help="Config filename.")
+    parser.add_argument("-s", "--secrets", default="secrets.json", type=Path, help="Secrets filename.")
     return parser.parse_args(argv)
 
 
 if __name__ == "__main__":
     args = parse_args()
     config_logger(args.verbosity)
-    config = Config.model_validate(json.load(args.config))
-    secrets = Secrets.model_validate(json.load(args.secrets))
+    config = Config.model_validate_json(args.config.read_text())
+    secrets = Secrets.model_validate_json(args.secrets.read_text())
     raise SystemExit(main(config, secrets))
